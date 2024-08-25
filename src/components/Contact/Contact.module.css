@@ -1,0 +1,30 @@
+.contactCard {
+  min-width: 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+
+  button {
+    max-width: 50%;
+    font-size: inherit;
+    border-radius: 8px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    margin-right: 5px;
+  }
+}
