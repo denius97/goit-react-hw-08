@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: rgb(10, 228, 163);
+  font-weight: 700;
+  border-bottom: 2px solid #d82828;
+  margin-bottom: 20px;
+
+  a {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,16 @@
+.userMenu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  button {
+    font-size: inherit;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: teal;
+    border: none;
+  }
+}
+
+.userName {
+  color: yellow;
+}
