@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { register, login, logout, refreshUser } from "./operations";
 
 const initialState = {
@@ -9,7 +9,6 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  authError: null,
 };
 
 const authSlice = createSlice({
@@ -44,16 +43,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
-      })
-      .addMatcher(isAnyOf(register.pending, login.pending), (state, action) => {
-        state.authError = null;
-      })
-      .addMatcher(
-        isAnyOf(register.rejected, login.rejected),
-        (state, action) => {
-          state.authError = action.payload;
-        }
-      );
+      });
   },
 });
 

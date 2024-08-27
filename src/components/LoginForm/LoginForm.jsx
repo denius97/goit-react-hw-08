@@ -1,10 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import css from "./LoginForm.module.css";
 import { login } from "../../redux/auth/operations";
-import { selectAuthError } from "../../redux/auth/selectors";
-import toast from "react-hot-toast";
 import * as Yup from "yup";
 
 const validation = Yup.object().shape({
@@ -16,8 +14,6 @@ const validation = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  const authError = useSelector(selectAuthError);
-
   const initialValues = {
     email: "",
     password: "",
@@ -28,9 +24,6 @@ const LoginForm = () => {
     dispatch(login(values));
     options.resetForm();
   };
-  if (authError) {
-    toast.error(authError);
-  }
 
   return (
     <div className={css.formWrapper}>

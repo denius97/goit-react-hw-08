@@ -1,10 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { register } from "../../redux/auth/operations";
 import css from "./RegistrationForm.module.css";
-import toast from "react-hot-toast";
-import { selectAuthError } from "../../redux/auth/selectors";
 import * as Yup from "yup";
 
 const validation = Yup.object().shape({
@@ -20,7 +18,6 @@ const validation = Yup.object().shape({
 });
 
 const RegistrationForm = () => {
-  const authError = useSelector(selectAuthError);
   const initialValues = {
     email: "",
     name: "",
@@ -31,10 +28,6 @@ const RegistrationForm = () => {
     dispatch(register(values));
     options.resetForm();
   };
-
-  if (authError) {
-    toast.error(authError);
-  }
 
   return (
     <div className={css.formWrapper}>

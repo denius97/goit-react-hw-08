@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { clearToken, contactsApi, setToken } from "../../config/contactsApi";
+import toast from "react-hot-toast";
 
 export const register = createAsyncThunk(
   "auth/register",
@@ -9,6 +10,7 @@ export const register = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -22,6 +24,7 @@ export const login = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
