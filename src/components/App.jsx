@@ -13,7 +13,6 @@ import { refreshUser } from "../redux/auth/operations";
 import { PrivateRoute } from "../routes/PrivateRoute.jsx";
 import { RestrictedRoute } from "../routes/RestrictedRoute.jsx";
 import { selectIsRefreshing } from "../redux/auth/selectors.js";
-import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispath = useDispatch();
@@ -33,7 +32,6 @@ function App() {
     </div>
   ) : (
     <>
-      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>

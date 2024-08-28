@@ -53,6 +53,9 @@ export const refreshUser = createAsyncThunk(
       const { data } = await contactsApi.get("users/current");
       return data;
     } catch (error) {
+      toast.error(
+        `${error.message}: If 401 - token is not valid, login againe!`
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

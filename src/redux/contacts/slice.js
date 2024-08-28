@@ -45,7 +45,6 @@ const contactsSlice = createSlice({
           fetchContacts.rejected,
           deleteContact.rejected,
           addContact.rejected,
-          refreshUser.rejected,
           logout.rejected
         ),
         (state) => {
@@ -67,9 +66,12 @@ const contactsSlice = createSlice({
           state.loading = false;
         }
       )
-      .addMatcher(isAnyOf(register.rejected, login.rejected), (state) => {
-        state.loading = false;
-      });
+      .addMatcher(
+        isAnyOf(register.rejected, login.rejected, refreshUser.rejected),
+        (state) => {
+          state.loading = false;
+        }
+      );
   },
 });
 
