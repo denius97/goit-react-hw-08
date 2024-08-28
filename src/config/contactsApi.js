@@ -5,8 +5,6 @@ export const contactsApi = axios.create({
 });
 
 export const setToken = (token) => {
-  console.log(token);
-
   contactsApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
